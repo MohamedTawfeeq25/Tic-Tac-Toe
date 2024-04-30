@@ -9,7 +9,7 @@ const App=()=>{
 	<>
 	<BrowserRouter>
 	<Routes>
-	<Route index path="/" element={<Home/>}/>
+	<Route index path="/Tic-Tac-Toe/" element={<Home/>}/>
 	<Route  path="/game/dualPlayer" element={<Game/>}/>
 	<Route  path="/game/playervsbot" element={<Botmode/>}/>	
 	</Routes>
