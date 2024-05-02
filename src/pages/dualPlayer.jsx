@@ -1,12 +1,11 @@
-
 import {useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import '../styles/board.css';
 import restart from '../images/restart.png';
 import exit from '../images/exit.png';
-import Logic from './BotLogic.js';
-const Botmode=()=>{
-     const [player,setPlayer]=useState('x');
+
+const Game=()=>{
+    const [player,setPlayer]=useState('x');
     function rest(){
         document.getElementById("a").value="";
         document.getElementById("b").value="";
@@ -30,7 +29,6 @@ const Botmode=()=>{
       var h=document.getElementById("h").value;
       var i=document.getElementById("i").value;
          if((a=="X" && b=="X" && c=="X")||(a=="X" && d=="X" && g=="X" )||(d=="X" && e=="X" && f=="X") || (g=="X" && h=="X" && i=="X") || (b=="X" && e=="X" && h=="X") ||(c=="X" && f=="X" && i=="X") || (a=="X" && e=="X" && i=="X") || (g=="X" && e=="X" && c=="X") ){
-            
         window.alert("X wins");
         rest();
          }
@@ -44,19 +42,7 @@ const Botmode=()=>{
          }
 
     }
-
-   function Ans(event){
-        if(player=='x' && document.getElementById(event.target.id).value=="" ){
-            document.getElementById(event.target.id).style='color:#44BFD9';
-            document.getElementById(event.target.id).value='X';
-            setPlayer('o');
-        }
-        else if(player=='o'){
-           Logic();
-            setPlayer('x');
-     }
-}
-     useEffect(()=>{
+    useEffect(()=>{
         if(player=='x'){
             document.getElementById("Xturn").style="color:#44BFD9;border-bottom:3px solid #44BFD9";
             document.getElementById("Yturn").style="color:#9A9B9B;border-bottom:2px solid #9A9B9B";
@@ -64,21 +50,39 @@ const Botmode=()=>{
             
         }
         else if(player=='o'){
-            Ans();
               document.getElementById("Yturn").style="color:#D8BCFC;border-bottom:3px solid #D8BCFC";
                 document.getElementById("Xturn").style="color:#9A9B9B;border-bottom:2px solid #9A9B9B";
             Result();
              
         }
     });
+
+    function Ans(event){
+    if(document.getElementById(event.target.id).value==""){
+        if(player=='x'){
+        
+            document.getElementById(event.target.id).style='color:#44BFD9';
+            document.getElementById(event.target.id).value='X';
+            setPlayer('o');
+        }
+        else if(player=='o'){
+            document.getElementById(event.target.id).style='color:#D8BCFC';
+            document.getElementById(event.target.id).value='O';
+            setPlayer('x');
+            }
+    }
+    
+       
+
+}
     
 	return(<>
         <div id="boards" class="box">
             <div id="boardtop">
-                <div id="btop"><div id="restart"><button onClick={rest}><img src={restart}/></button></div><div id="gtitle"><h1>Player vs Bot</h1></div><div id="exit"><button><Link to="/"><img src={exit}/></Link></button></div></div>
+                <div id="btop"><div id="restart"><button onClick={rest}><img src={restart}/></button></div><div id="gtitle"><h1>Player vs Player</h1></div><div id="exit"><button><Link to="/home"><img src={exit}/></Link></button></div></div>
             </div>
             <div id="player">
-                <div id="playerstatus"><div id="Xturn">Player X</div><div id="Yturn">Bot O</div></div>
+                <div id="playerstatus"><div id="Xturn">Player X</div><div id="Yturn">Player O</div></div>
             </div>
             <div id="tic-tac-toe">
                 <div id="innerbox">
@@ -93,7 +97,7 @@ const Botmode=()=>{
                      <input type="text" onClick={Ans}  minlength="1" maxlength="1" readOnly  id="i" /><br/>
                 </div>
             </div>
-        </div>  
-        </>)
+        </div>	
+		</>)
 }
-export default Botmode;
+export default Game;

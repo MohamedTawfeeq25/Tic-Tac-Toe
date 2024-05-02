@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import '../styles/home.css';
 const Home=()=>{
 	return(<>
-		<div id="home" class="box">
+		<div id="home" className="box">
 			<div id="title"><h1>Tic Tac Toe</h1></div>
 			<div id="cont">
 				<div id="but">
