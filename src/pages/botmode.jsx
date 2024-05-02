@@ -83,7 +83,7 @@ const Botmode=()=>{
                         <h1>Player vs Bot</h1>
                     </div>
                     <div id="exit">
-                        <button><Link to="/home"><img src={exit}/></Link></button>
+                        <button><Link to="/Tic-Tac-Toe/"><img src={exit}/></Link></button>
                     </div>
                 </div>
             </div>

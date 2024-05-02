@@ -79,7 +79,7 @@ const Game=()=>{
 	return(<>
         <div id="boards" class="box">
             <div id="boardtop">
-                <div id="btop"><div id="restart"><button onClick={rest}><img src={restart}/></button></div><div id="gtitle"><h1>Player vs Player</h1></div><div id="exit"><button><Link to="/home"><img src={exit}/></Link></button></div></div>
+                <div id="btop"><div id="restart"><button onClick={rest}><img src={restart}/></button></div><div id="gtitle"><h1>Player vs Player</h1></div><div id="exit"><button><Link to="/Tic-Tac-Toe/"><img src={exit}/></Link></button></div></div>
             </div>
             <div id="player">
                 <div id="playerstatus"><div id="Xturn">Player X</div><div id="Yturn">Player O</div></div>
